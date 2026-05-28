@@ -3,417 +3,988 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tranquillity Seekers | Premium Lesotho Highland Journeys</title>
-    
+    <title>Tranquillity Seekers | Find Your Quiet, Your Stillness</title>
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
+    
     <style>
-        /* TAILORED BRAND PALETTE */
+        /* Color Palette & Variables Selection */
         :root {
-            --highland-blue: #2F4F6F;   /* Core luxury brand color */
-            --mountain-earth: #7A5C3E;  /* Secondary grounding color */
-            --alpine-green: #4F6F52;    /* Sustainability highlights */
-            --snow-white: #F5F5F5;      /* Clean background */
-            --sunset-copper: #C66A2B;   /* High-contrast call to action */
-            --text-dark: #222222;
+            --highland-blue: #2F4F6F;
+            --mountain-earth: #7A5C3E;
+            --alpine-green: #4F6F52;
+            --snow-white: #F5F5F5;
+            --sunset-copper: #C66A2B;
+            --charcoal: #222222;
+            --serif-font: 'Playfair Display', serif;
+            --sans-font: 'Montserrat', sans-serif;
         }
 
-        /* RESET & BASE STYLES */
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Montserrat', sans-serif;
+        /* Core Reset & Base Layout */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: var(--text-dark);
-            background-color: var(--snow-white);
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+        body {
+            font-family: var(--sans-font);
+            background-color: var(--snow-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .serif-text {
+            font-family: var(--serif-font);
             font-weight: 600;
-            margin-top: 0;
         }
 
-        a { text-decoration: none; transition: all 0.4s ease; }
-        section { padding: 80px 24px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        /* REUSABLE PREMIUM BUTTONS */
-        .btn {
-            display: inline-block;
-            padding: 16px 36px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-align: center;
-        }
-        
-        .btn-primary {
-            background-color: var(--sunset-copper);
-            color: #ffffff;
-        }
-        .btn-primary:hover { background-color: #a85823; transform: translateY(-2px); }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--snow-white);
-            border-color: var(--snow-white);
-        }
-        .btn-secondary:hover {
-            background-color: var(--snow-white);
-            color: var(--highland-blue);
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
         }
 
-        /* FIXED MOBILE-FRIENDLY NAVIGATION */
-        header {
-            background-color: var(--highland-blue);
-            padding: 15px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
-        .logo-link { display: flex; align-items: center; }
-        .brand-logo {
-            height: 48px;
-            width: auto;
-            max-width: 160px;
+        img, video {
+            max-width: 100%;
+            height: auto;
             display: block;
         }
 
-        nav a { 
-            color: var(--snow-white); 
-            margin-left: 24px; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px; 
-            font-weight: 400;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        nav a:hover { color: var(--sunset-copper); }
 
-        /* HERO AREA WITH LUXURY SLOGAN */
-        .hero {
-            background: linear-gradient(rgba(47, 79, 111, 0.65), rgba(47, 79, 111, 0.65)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            color: var(--snow-white);
+        /* Global Reusable Component Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: var(--sans-font);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-primary {
+            background-color: var(--highland-blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #1f364d;
+            transform: translateY(-1px);
+        }
+
+        .btn-accent {
+            background-color: var(--sunset-copper);
+            color: #ffffff;
+        }
+
+        .btn-accent:hover {
+            background-color: #aa551f;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--highland-blue);
+            color: var(--highland-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--highland-blue);
+            color: #ffffff;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo-img {
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Hero Entry Point Section */
+        .hero-section {
+            background-linear-gradient: rgba(34,34,34,0.4), rgba(34,34,34,0.4);
+            background-color: #3e4e59;
+            color: #ffffff;
+            padding: 100px 0;
             text-align: center;
-            padding: 160px 24px;
+            border-bottom: 4px solid var(--mountain-earth);
         }
-        .hero h1 { font-size: 3.2rem; letter-spacing: 2px; margin-bottom: 24px; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 40px auto; font-weight: 300; }
 
-        /* BRAND STATEMENT BRANDING */
-        .brand-statement { 
-            text-align: center; 
-            background-color: #ffffff; 
-            padding: 90px 24px;
-            border-bottom: 1px solid #eee;
+        .hero-title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
         }
-        .brand-statement h2 { color: var(--highland-blue); font-size: 2.4rem; margin-bottom: 15px; }
-        .brand-statement .slogan { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.8rem; 
-            color: var(--mountain-earth); 
-            font-style: italic;
-            margin-top: 0;
-        }
-        .brand-statement .manifesto {
-            max-width: 800px;
-            margin: 20px auto 0 auto;
-            font-size: 1.05rem;
-            color: #555;
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
             font-weight: 300;
         }
 
-        /* EXPERIENCE EXPLORATION CARDS */
-        .experiences { background-color: var(--snow-white); }
-        .experiences h2 { text-align: center; color: var(--highland-blue); font-size: 2.5rem; margin-bottom: 10px; }
-        .experiences .subtitle { text-align: center; color: #666; margin-bottom: 50px; font-size: 1rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
-        .card { 
-            background: #ffffff; 
-            border-radius: 0px; 
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-            border: 1px solid #eaeaea;
-            transition: transform 0.4s ease;
+        .hero-cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card-img { height: 240px; background-color: #ddd; background-size: cover; background-position: center; }
-        .card-content { padding: 30px; }
-        .card-content h3 { color: var(--highland-blue); font-size: 1.4rem; margin-bottom: 12px; }
-        .card-content p { font-size: 0.95rem; color: #555; margin-bottom: 0; }
 
-        /* THE INVITATION & BRAND FOUNDATION */
-        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background-color: #ffffff; align-items: center; }
-        .invitation-block { 
-            background-color: var(--highland-blue); 
-            height: 400px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            flex-direction: column;
-            padding: 40px;
+        /* Stack 1: Campaign Showcase & About Narrative Space */
+        .stack-1-campaign-about {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .grid-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .grid-split {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .campaign-card {
+            background-color: var(--snow-white);
+            border-top: 4px solid var(--alpine-green);
+            padding: 35px;
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .campaign-header-tag {
+            color: var(--mountain-earth);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .campaign-title {
+            font-size: 2.2rem;
+            color: var(--highland-blue);
+            margin-bottom: 6px;
+        }
+
+        .campaign-tagline {
+            font-family: var(--serif-font);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 25px;
+        }
+
+        .video-series-box {
+            background-color: #e2e8f0;
+            padding: 20px;
+            border-radius: 2px;
+            text-align: center;
+            border: 1px dashed var(--highland-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text-content h2 {
+            font-size: 2rem;
+            color: var(--highland-blue);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--snow-white);
+            padding-bottom: 10px;
+        }
+
+        .about-text-content p {
+            margin-bottom: 18px;
+            font-size: 0.98rem;
+            color: #444444;
+            text-align: justify;
+        }
+
+        /* Stack 2: The Experiential Invitation Space */
+        .stack-2-invitation {
+            background-color: var(--snow-white);
+            padding: 90px 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .invitation-center-block {
+            max-width: 850px;
+            margin: 0 auto;
             text-align: center;
         }
-        .about-text h2 { color: var(--highland-blue); font-size: 2.2rem; margin-bottom: 20px; }
-        .about-text p { margin-bottom: 20px; color: #444; font-size: 1rem; }
 
-        /* SECURE BOOKINGS & NEWSLETTER INTAKE */
-        .booking-section { background-color: var(--highland-blue); color: var(--snow-white); }
-        .booking-section h2 { font-size: 2.5rem; margin-bottom: 15px; text-align: center; }
-        .booking-section .subtext { text-align: center; color: var(--snow-white); opacity: 0.9; margin-bottom: 50px; font-size: 1.1rem; }
-        
-        .forms-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
-        .form-box { background: rgba(255,255,255,0.04); padding: 40px; border: 1px solid rgba(255,255,255,0.1); }
-        .form-box h3 { font-size: 1.5rem; color: var(--sunset-copper); margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.75rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;}
-        .form-group input, .form-group select { 
-            width: 100%; 
-            padding: 14px; 
-            background: rgba(0, 0, 0, 0.2); 
-            border: 1px solid rgba(255,255,255,0.25); 
-            color: #ffffff; 
-            font-family: 'Montserrat', sans-serif; 
+        .invitation-title {
+            font-size: 2.4rem;
+            color: var(--highland-blue);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .video-player-frame {
+            background-color: #222;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 35px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .video-player-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-story-excerpt {
+            font-family: var(--serif-font);
+            font-style: italic;
+            font-size: 1.35rem;
+            line-height: 1.7;
+            color: var(--mountain-earth);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Stack 3: Choose Your Journey Deck */
+        .stack-3-journeys {
+            padding: 90px 0;
+            background-color: #ffffff;
+        }
+
+        .section-header-center {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header-center h2 {
+            font-size: 2.4rem;
+            color: var(--highland-blue);
+            margin-bottom: 10px;
+        }
+
+        .section-header-center p {
+            font-size: 1rem;
+            color: var(--mountain-earth);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background-color: var(--snow-white);
+            border: 1px solid #e8e8e8;
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+        }
+
+        .package-image-placeholder {
+            height: 200px;
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .card-bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(47, 79, 111, 0.15);
+        }
+
+        .package-card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-name {
+            font-size: 1.3rem;
+            color: var(--highland-blue);
+            margin-bottom: 20px;
+        }
+
+        /* Custom styling rule variant for Card 7 Tailor Option */
+        .package-card.tailor-option {
+            border: 2px dashed var(--mountain-earth);
+            background-color: #fffaf5;
+        }
+        .package-card.tailor-option .package-image-placeholder {
+            background-color: var(--mountain-earth);
+        }
+        .package-card.tailor-option .package-name {
+            color: var(--mountain-earth);
+        }
+
+        /* Stack 4: Conversion, Discovery, Subscriptions */
+        .stack-4-connections {
+            background-color: var(--highland-blue);
+            color: #ffffff;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .connections-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 850px) {
+            .connections-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .conversion-links-block h3, .newsletter-block h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            border-left: 3px solid var(--sunset-copper);
+            padding-left: 12px;
+        }
+
+        .action-row-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .action-tile {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 20px 30px;
+            border-radius: 2px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .action-tile:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--sunset-copper);
+        }
+
+        .gallery-preview-strip {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 2px;
+        }
+
+        .gallery-headline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--snow-white);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .gallery-mock-row {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px dashed rgba(255,255,255,0.2);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        /* Subscription Capture Elements */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 14px;
+            border: none;
+            border-radius: 2px;
+            font-family: var(--sans-font);
+            font-size: 0.9rem;
+        }
+
+        /* Compliance Framework Footer Drawers */
+        .compliance-footer-boxes {
+            background-color: #243d56;
+            color: #ffffff;
+            padding: 60px 0;
+            font-size: 0.88rem;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+        }
+
+        .compliance-col h4 {
+            font-family: var(--serif-font);
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compliance-col ul {
+            list-style: none;
+        }
+
+        .compliance-col ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 14px;
+            color: #cbd5e1;
+        }
+
+        .compliance-col ul li::before {
+            content: "•";
+            color: var(--sunset-copper);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Absolute Bottom Meta Bar */
+        .bottom-meta-bar {
+            background-color: var(--charcoal);
+            color: #999999;
+            padding: 30px 0;
+            font-size: 0.8rem;
+            border-top: 1px solid #333333;
+        }
+
+        .meta-flex-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-strings a {
+            margin-right: 20px;
+            color: #cbd5e1;
+        }
+
+        .contact-strings a:hover {
+            color: var(--sunset-copper);
+        }
+
+        .legal-strings a {
+            margin-left: 15px;
+        }
+
+        .legal-strings a:hover {
+            color: #ffffff;
+        }
+
+        /* Interactive Booking Form Overlay Drawer */
+        .booking-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(34,34,34,0.85);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+
+        .booking-modal-overlay.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 40px;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888888;
+        }
+
+        .close-modal-btn:hover {
+            color: var(--charcoal);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 2px;
+            font-family: var(--sans-font);
             font-size: 0.95rem;
         }
-        .form-group input:focus, .form-group select:focus { border-color: var(--sunset-copper); outline: none; }
-        .form-group select option { background-color: #222; color: #fff; }
 
-        /* CORPORATE SOCIAL RESPONSIBILITY PILLARS */
-        .pillars-section { background-color: var(--snow-white); border-top: 1px solid #e0e0e0; }
-        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .pillar-box h4 { color: var(--mountain-earth); font-size: 1.1rem; margin-bottom: 15px; border-bottom: 2px solid #ddd; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .pillar-box ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #444; }
-        .pillar-box ul li { margin-bottom: 12px; position: relative; padding-left: 15px; }
-        .pillar-box ul li::before { content: "•"; color: var(--sunset-copper); position: absolute; left: 0; font-weight: bold; }
-
-        /* LEGAL FOOTER */
-        .main-footer { background-color: #161616; color: #777777; text-align: center; padding: 40px 24px; font-size: 0.85rem; border-top: 1px solid #222; }
-        .main-footer p { margin: 0; }
-
-        /* RESPONSIVE DESIGN ADJUSTMENTS */
-        @media (max-width: 900px) {
-            .about-layout, .forms-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
-            .brand-statement h2 { font-size: 1.8rem; }
-            .brand-statement .slogan { font-size: 1.4rem; }
-            header { flex-direction: column; padding: 20px; }
-            nav { margin-top: 20px; width: 100%; text-align: center; }
-            nav a { margin: 0 12px; font-size: 0.8rem; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--highland-blue);
         }
     </style>
 </head>
 <body>
 
+    <!-- STICKY HEADER ASSET NAVIGATION -->
     <header>
-        <a href="#" class="logo-link">
-            <img src="logo2_tranquillity_seekers.png" alt="Tranquillity Seekers Logo" class="brand-logo">
-        </a>
-        <nav>
-            <a href="#experiences">Experiences</a>
-            <a href="#about">Our Identity</a>
-            <a href="#booking">Secure Quote</a>
-        </nav>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo-anchor">
+                <!-- Links up directly to the renamed file signature -->
+                <img src="Logo TS.png" alt="Tranquillity Seekers Compass Logo" class="brand-logo-img">
+            </a>
+            <button class="btn btn-outline" onclick="openBookingModal('General Discovery Request')">Get a Quote</button>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>FIND YOUR QUIET,<br>YOUR STILLNESS.</h1>
-            <p>Immersive, low-impact luxury journeys across Lesotho's magnificent high-altitude peaks, rich local communities, and untouched emotional sanctuaries.</p>
-            <a href="#experiences" class="btn btn-secondary">Discover Journeys</a>
-        </div>
-    </section>
-
-    <section class="brand-statement">
-        <div class="container">
-            <h2>Tranquillity Found</h2>
-            <p class="slogan">"We have our own keys to the Kingdom."</p>
-            <p class="manifesto">
-                Operating directly out of the heart of the Maloti Mountains, our curated, high-end 4-day, 3-night escapes are crafted for discerning global citizens seeking to disconnect from industrial noise and safely anchor back within themselves.
-            </p>
-        </div>
-    </section>
-
-    <section id="experiences" class="experiences">
-        <div class="container">
-            <h2>The Six High-Altitude Journeys</h2>
-            <p class="subtitle">Meticulously configured itineraries designed around absolute safety, internal stillness, and minimal ecological trace.</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518206075495-4e901709d360?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>1. The Stillness Journey</h3>
-                        <p>A pure emotional restoration itinerary. Built around luxury thermal comfort, silence patterns, and guided internal decompression exercises across vast private highland meadows.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542384701-c0e46e0eda04?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>2. Echoes of the Highlands</h3>
-                        <p>Deep cultural immersion. Spend structured evenings listening to local Basotho oral historians, mapping stargazing tracks, and learning mountain heritage by open fires.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>3. Return to Yourself Retreat</h3>
-                        <p>A structured premium isolation challenge for executives and founders. Safely strip away sensory overstimulation to recalibrate focus and rediscover raw personal clarity.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>4. Kingdom Above the Clouds</h3>
-                        <p>A luxury journey configured heavily around panoramic mountain vistas, dramatic vertical geology, and high-altitude perspective therapy overlooking pristine valleys.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>5. Rivers of the Sky</h3>
-                        <p>Focused on ecology and water security education. Trace pristine high-altitude mountain springs, crystal rapids, and sub-alpine biological catchments unique to Lesotho.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522345095337-33d31ffdd2ce?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="card-content">
-                        <h3>6. The Wild Terrain Experience</h3>
-                        <p>Designed for the strict Adventure Minimalist. A high-end physical test balancing rugged back-country exploration with clean, calculated survival and navigational skills.</p>
-                    </div>
+    <main>
+        <!-- FIRST TOUCHPOINT: HERO INVITATION -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Find Your Quiet, Your Stillness</h1>
+                <p class="hero-subtitle">Guided journeys into Lesotho’s mountains, culture, and wild places. 4‑day, 3‑night packages. Small groups. Responsible travel.</p>
+                <div class="hero-cta-group">
+                    <a href="#brand-story-anchor" class="btn btn-primary">Watch our Story</a>
+                    <a href="#experiences-anchor" class="btn btn-accent">Explore Experiences</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" style="background-color: #ffffff;">
-        <div class="container about-layout">
-            <div class="invitation-block">
-                <h3 class="serif-font" style="font-size: 1.8rem; margin-bottom: 10px;">The Digital Invitation</h3>
-                <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.85;">[ Cinematic Brand Video Frame: Stillness in the Maloti Mountains ]</p>
-            </div>
-            <div class="about-text">
-                <h2>Our Corporate Creed</h2>
-                <p>Tranquillity Seekers is an intentional, premium eco-travel firm founded on the absolute belief that high-end travel must actively nourish local ecosystems, respect native sovereign communities, and build real human balance.</p>
-                <p>We work exclusively alongside indigenous Basotho guides, ensuring local leaders manage the narrative, protect regional customs, and retain direct financial equity from every traveler we guide into the peaks.</p>
-            </div>
-        </div>
-    </section>
+        <!-- STACK 1: CAMPAIGN MODULE & MASTER ABOUT NARRATIVE -->
+        <section class="stack-1-campaign-about">
+            <div class="container grid-split">
+                
+                <!-- Campaign Space Area (Left column) -->
+                <div class="campaign-card">
+                    <span class="campaign-header-tag">Launch Campaign Showcase</span>
+                    <h2 class="campaign-title">Tranquillity Found</h2>
+                    <p class="campaign-tagline">"We have our own keys to the Kingdom!"</p>
+                    
+                    <div class="video-series-box">
+                        <p style="font-weight:600; margin-bottom:8px; color: var(--highland-blue);">Weekly Welcome Messages</p>
+                        <p style="font-size:0.85rem; color:#555555; margin-bottom:15px;">Follow our founder's entry statements and rolling content drops throughout launch month.</p>
+                        <div style="background:#fff; padding:15px; border:1px solid #ddd; font-size:0.8rem; color:#666;">
+                            [ Video Content Stream: Part 1 Loaded ]
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="document.getElementById('brand-video').play(); window.location.hash='#brand-story-anchor';">Tranquillity Found; Our Welcome</button>
+                </div>
 
-    <section id="booking" class="booking-section">
-        <div class="container">
-            <h2>Let the Journey Begin</h2>
-            <p class="subtext">Configure your client intake details below. Our luxury operations desk will contact you with custom logistics.</p>
-            
-            <div class="forms-container">
-                <div class="form-box">
-                    <h3>Request a Curated Quote</h3>
-                    <form name="ts-booking" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="ts-booking" />
-                        <div class="form-group">
-                            <label>Select Your Mountain Track</label>
-                            <select name="selected_package" required>
-                                <option value="The Stillness Journey">1. The Stillness Journey</option>
-                                <option value="Echoes of the Highlands">2. Echoes of the Highlands</option>
-                                <option value="Return to Yourself">3. Return to Yourself Retreat</option>
-                                <option value="Kingdom Above Clouds">4. Kingdom Above the Clouds</option>
-                                <option value="Rivers of the Sky">5. Rivers of the Sky</option>
-                                <option value="The Wild Terrain">6. The Wild Terrain Experience</option>
-                            </select>
+                <!-- Evergreen Corporate Profile Context (Right column) -->
+                <div class="about-text-content">
+                    <h2>Our Philosophy</h2>
+                    <p>Tranquillity Seekers is a premium travel and tour company dedicated to introducing travellers to the landscapes, cultures, and emotional stillness of Southern Africa, beginning with the Kingdom in the Sky – Lesotho.</p>
+                    <p>Founded from a love of exploration, storytelling, and authentic human connection, Tranquillity Seekers curates immersive experiences that move beyond conventional tourism.</p>
+                    <p>We believe meaningful travel should do more than entertain. It should restore. It should reconnect. It should allow travellers to encounter landscapes, cultures, and communities in ways that slow the clock and deepen perspective.</p>
+                    <p>Our journeys are shaped by mountains, rivers, villages, heritage, and the rhythms of the natural world.</p>
+                    <p>Whether traversing Lesotho’s dramatic mountain passes, engaging with Basotho culture, experiencing wilderness retreats, or discovering hidden landscapes across Southern Africa, every Tranquillity Seekers experience is designed to balance adventure with stillness.</p>
+                    <p>Initially operating within Lesotho, the company intends to gradually expand its travel offerings into selected Southern African destinations while maintaining the same philosophy of authenticity, atmosphere, sustainability, and emotional connection.</p>
+                    <p>We are not simply tour operators. We are curators of experience. Guides into culture. And custodians of meaningful travel.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STACK 2: THE EXPERIENTIAL CINEMATIC PREVIEW -->
+        <section id="brand-story-anchor" class="stack-2-invitation">
+            <div class="container invitation-center-block">
+                <h2 class="invitation-title">The Invitation</h2>
+                
+                <div class="video-player-frame">
+                    <!-- Links up directly to the 5MB video asset pipeline -->
+                    <video id="brand-video" controls preload="metadata" poster="Logo TS.png">
+                        <source src="Brand story 5MB.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <blockquote class="brand-story-excerpt">
+                    "Sunsets melt into crimson skies. The mornings witness darkness fade during the singsong of highland birds. We bring you to places where the clock slows down long enough for you to catch your breath."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- STACK 3: CHOOSE YOUR JOURNEY OVERVIEW DECK -->
+        <section id="experiences-anchor" class="stack-3-journeys">
+            <div class="container">
+                <div class="section-header-center">
+                    <h2>Choose Your Journey</h2>
+                    <p>Curated 4‑Day, 3‑Night Experiences</p>
+                </div>
+
+                <div class="packages-grid">
+                    
+                    <!-- Card 1: Echoes of the Highlands -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">01</span>
                         </div>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="client_name" placeholder="E.g., Lerato Ntlama" required>
+                        <div class="package-card-body">
+                            <h3 class="package-name">Echoes of the Highlands</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('Echoes of the Highlands')">Click for Details</button>
                         </div>
-                        <div class="form-group">
-                            <label>Secure Email Address</label>
-                            <input type="email" name="client_email" placeholder="name@luxurytravel.com" required>
+                    </div>
+
+                    <!-- Card 2: Return to Yourself Retreat -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">02</span>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize Package Request</button>
+                        <div class="package-card-body">
+                            <h3 class="package-name">Return to Yourself Retreat</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('Return to Yourself Retreat')">Click for Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: The Wild Terrain Experience -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">03</span>
+                        </div>
+                        <div class="package-card-body">
+                            <h3 class="package-name">The Wild Terrain Experience</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('The Wild Terrain Experience')">Click for Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Rivers of the Sky -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">04</span>
+                        </div>
+                        <div class="package-card-body">
+                            <h3 class="package-name">Rivers of the Sky</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('Rivers of the Sky')">Click for Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Kingdom Above the Clouds -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">05</span>
+                        </div>
+                        <div class="package-card-body">
+                            <h3 class="package-name">Kingdom Above the Clouds</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('Kingdom Above the Clouds')">Click for Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: The Stillness Journey -->
+                    <div class="package-card">
+                        <div class="package-image-placeholder">
+                            <div class="card-bg-overlay"></div>
+                            <span style="font-family:var(--serif-font);">06</span>
+                        </div>
+                        <div class="package-card-body">
+                            <h3 class="package-name">The Stillness Journey</h3>
+                            <button class="btn btn-primary" onclick="openBookingModal('The Stillness Journey')">Click for Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Tailor Your Journey Custom Variant -->
+                    <div class="package-card tailor-option">
+                        <div class="package-image-placeholder">
+                            <span style="font-family:var(--serif-font);">✦</span>
+                        </div>
+                        <div class="package-card-body">
+                            <h3 class="package-name">Tailor Your Journey</h3>
+                            <button class="btn btn-accent" onclick="openBookingModal('Bespoke Custom Tailored Journey')">Design Custom Route</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STACK 4: CONVERSION CAPTURE AND NETLIFY PIPELINES -->
+        <section class="stack-4-connections">
+            <div class="container connections-grid">
+                
+                <!-- Conversions & Gallery Column -->
+                <div>
+                    <h3>Let the Journey Come to You</h3>
+                    <div class="action-row-links">
+                        <a href="javascript:void(0)" onclick="openBookingModal('General Discovery Request')" class="action-tile">
+                            <span>➔</span> Bookings (Get a Quote)
+                        </a>
+                        <a href="#store" class="action-tile" onclick="alert('Store ecosystem module arriving in Phase 6.')">
+                            <span>➔</span> Visit our Store
+                        </a>
+                        <a href="#gallery" class="action-tile">
+                            <span>➔</span> Gallery Archive
+                        </a>
+                    </div>
+
+                    <div id="gallery" class="gallery-preview-strip">
+                        <span class="gallery-headline">Campaign Media Archive</span>
+                        <div class="gallery-mock-row">
+                            Weekly launch campaign videos streams added transparently over Phase 1 duration.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Extraction Engine (Far Right Assignment) -->
+                <div class="newsletter-block">
+                    <h3>Newsletter</h3>
+                    <form name="newsletter-leads" method="POST" data-netlify="true" class="newsletter-form">
+                        <input type="hidden" name="form-name" value="newsletter-leads">
+                        <p style="font-size:0.85rem; margin-bottom:10px; opacity:0.8;">Subscribe to receive tactical deployment window notifications and luxury travel dispatches from Lesotho.</p>
+                        <input type="email" name="subscriber-email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
                     </form>
                 </div>
 
-                <div class="form-box" style="border-color: var(--alpine-green);">
-                    <h3 style="color: var(--alpine-green);">Access The Highland Journal</h3>
-                    <form name="ts-newsletter" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="ts-newsletter" />
-                        <div class="form-group">
-                            <label>Preferred Name</label>
-                            <input type="text" name="subscriber_name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Secure Email Address</label>
-                            <input type="email" name="subscriber_email" placeholder="insider@domain.com" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="background-color: var(--alpine-green); width: 100%;">Subscribe to Journal</button>
-                    </form>
-                </div>
             </div>
+        </section>
+    </main>
+
+    <!-- SECTION 21.5 COMPLIANCE STRATEGY FOOTER DRAWERS -->
+    <section class="compliance-footer-boxes">
+        <div class="container compliance-grid">
+            
+            <div class="compliance-col">
+                <h4>Health &amp; Safety</h4>
+                <ul>
+                    <li>All guides wilderness first‑aid certified</li>
+                    <li>Satellite phone on every trip</li>
+                    <li>Vehicles vetted annually</li>
+                    <li>Travel insurance included</li>
+                    <li>Pre‑trip safety briefing (Appendix L)</li>
+                </ul>
+            </div>
+
+            <div class="compliance-col">
+                <h4>Sustainability</h4>
+                <ul>
+                    <li>100% of guide fees stay in Lesotho</li>
+                    <li>All lodging Basotho‑owned</li>
+                    <li>No single‑use plastic footprint</li>
+                    <li>Strict adherence to marked trails</li>
+                    <li>Artisan collaborations (Appendix K)</li>
+                </ul>
+            </div>
+
+            <div class="compliance-col">
+                <h4>Local Communities</h4>
+                <ul>
+                    <li>Village visits arranged through local chiefs</li>
+                    <li>Cultural respect code of conduct enforced</li>
+                    <li>Community impact data scorecard coming soon</li>
+                </ul>
+            </div>
+
+            <div class="compliance-col">
+                <h4>Team &amp; Qualifications</h4>
+                <ul>
+                    <li>Proudly Lesotho‑born specialist guides</li>
+                    <li>Wilderness first‑aid operations verified</li>
+                    <li>Minimum 3 years highland terrain execution</li>
+                    <li>Advanced cultural interpretation training</li>
+                    <li>Verified operator structures (Appendix M)</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
-    <section class="pillars-section">
-        <div class="container pillars-grid">
-            <div class="pillar-box">
-                <h4>Health & Safety Matrix</h4>
-                <ul>
-                    <li>Certified Wilderness First Responders on every track</li>
-                    <li>Active 24/7 Satellite Communications deployment</li>
-                    <li>Pre-vetted premium emergency extraction protocols</li>
-                </ul>
+    <!-- METADATA & SYSTEM FOOTER BAR -->
+    <footer class="bottom-meta-bar">
+        <div class="container meta-flex-wrapper">
+            <div class="contact-strings">
+                <a href="mailto:info@tranquilityseekers.github.io">info@tranquilityseekers.github.io</a>
+                <a href="https://wa.me/27718752068" target="_blank">WhatsApp: +2771 875 2068</a>
             </div>
-            <div class="pillar-box">
-                <h4>Highland Guide Equity</h4>
-                <ul>
-                    <li>100% locally born and raised Basotho mountaineers</li>
-                    <li>Fair luxury living wages and regional profit sharing</li>
-                    <li>True asset ownership models for local tracking paths</li>
-                </ul>
+            <div>
+                <span>© 2025 Tranquillity Seekers (Pty) Ltd.</span>
             </div>
-            <div class="pillar-box">
-                <h4>Eco Trace Minimization</h4>
-                <ul>
-                    <li>Zero plastic trace protocols enforced strictly on trails</li>
-                    <li>Solar powered, off-grid eco-encampments</li>
-                    <li>Direct investments back into Lesotho water catchments</li>
-                </ul>
+            <div class="legal-strings">
+                <a href="#terms" onclick="alert('Appendix J Data Engine')">Terms &amp; Conditions</a>
+                <a href="#privacy" onclick="alert('Appendix O Data Engine')">Privacy Policy</a>
             </div>
-            <div class="pillar-box">
-                <h4>Community Authority</h4>
-                <ul>
-                    <li>Itineraries strictly structured around Principal Chiefs</li>
-                    <li>Direct economic support for micro-economies</li>
-                    <li>Preservation mandates for ancient oral histories</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 Tranquillity Seekers (Pty) Ltd. Authentically Managed in Southern Africa. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- LIGHTWEIGHT INTERACTIVE MODAL COMPONENT (NETLIFY CAPTURE CONTAINER) -->
+    <div id="bookingModal" class="booking-modal-overlay">
+        <div class="modal-content-card">
+            <button class="close-modal-btn" onclick="closeBookingModal()">&times;</button>
+            <h2 id="modalTargetTitle" class="serif-font" style="color:var(--highland-blue); margin-bottom:10px;">Get a Quote</h2>
+            <p style="font-size:0.85rem; margin-bottom:25px; color:#666;">Provide details to finalize strategy pricing. Target submission timeframe is under 2 minutes.</p>
+            
+            <!-- Netlify Form Definition Block -->
+            <form id="bookingInquiryForm" name="booking-inquiries" method="POST" data-netlify="true">
+                <!-- Explicit form-name configuration parameter for Netlify post-parsing -->
+                <input type="hidden" name="form-name" value="booking-inquiries">
+                
+                <!-- Automated dynamic programmatic injection element -->
+                <input type="hidden" name="selected_package" id="hiddenPackageInput">
+                
+                <!-- Strategic Analytical Pipeline Inputs for Phase 1 Tracking Metric Requirements -->
+                <input type="hidden" name="total_time_spent" id="metricsTimeSpent" value="0">
+                <input type="hidden" name="form_abandoned" id="metricsAbandoned" value="true">
+
+                <div class="form-group">
+                    <label for="clientName">Full Name</label>
+                    <input type="text" id="clientName" name="client_name" required placeholder="Thato Chobokoane">
+                </div>
+
+                <div class="form-group">
+                    <label for="clientEmail">Email Address</label>
+                    <input type="email" id="clientEmail" name="client_email" required placeholder="name@domain.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="travellerCount">Number of Travellers</label>
+                    <input type="number" id="travellerCount" name="traveller_count" min="1" max="12" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientNotes">Special Custom Requirements or Considerations</label>
+                    <textarea id="clientNotes" name="client_notes" rows="4" placeholder="Share specific requirements, timing targets, or physical context constraints..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-accent" style="width:100%; padding:15px;">Submit Secure Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TRACKING SCRIPTS -->
+    <script>
+        // ANALYTICS TRACKING SYSTEM (PHASE 1 PERFORMANCE FRAMEWORK)
+        let formStartTime = null;
+        const formMetrics = {
+            timeSpentInput: document.getElementById('metricsTimeSpent'),
+            abandonedInput: document.getElementById('metricsAbandoned'),
+            formElement: document.getElementById('bookingInquiryForm')
+        };
+
+        function openBookingModal(packageName) {
+            document.getElementById('modalTargetTitle').innerText = "Inquire: " + packageName;
+            document.getElementById('hiddenPackageInput').value = packageName;
+            document.getElementById('bookingModal').classList.add('is-active');
+            
+            // Initialize total interaction timer metrics tracking hook once upon opening modal
+            if (!formStartTime) {
+                formStartTime = Date.now();
+            }
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('is-active');
+        }
+
+        // Intercept inputs to track engagement time
+        formMetrics.formElement.addEventListener('submit', function() {
+            if (formStartTime) {
+                const totalDurationSeconds = Math.round((Date.now() - formStartTime) / 1000);
+                formMetrics.timeSpentInput.value = totalDurationSeconds;
+            }
+            // Mark validation inversion flag to indicate valid transaction success closure
+            formMetrics.abandonedInput.value = "false";
+        });
+
+        // Close window safe escape handling keys
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('bookingModal');
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
+    </script>
 </body>
 </html>
